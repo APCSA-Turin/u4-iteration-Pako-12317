@@ -1,21 +1,15 @@
 public class Main{
     public static void main(String[] args) {
-        for (int i=1;i<11;i++){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        for (int i=15;i>-1;i--){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        for (int i=0;i<21;i++){
-            if(i%2 == 0){
-                System.out.print(i+" ");
-            }
-        }
-        System.out.println();
-        for (int i=0;i<21;i+=2){
-            System.out.print(i+" ");
-        }
+      StringLoops loops = new StringLoops();
+      System.out.println("--- testing countCharacters ---");
+      System.out.println(loops.countCharacters("a", "Apple and banana"));
+      System.out.println(loops.countCharacters("A", "Apple and banana"));
+      System.out.println(loops.countCharacters("!", "Hello! Nice day!"));
+      System.out.println(loops.countCharacters("g", "Hello! Nice day!"));
+      System.out.println("\n--- testing reverseString ---");
+      System.out.println(loops.reverseString("hello!"));
+      System.out.println(loops.reverseString("Apples and bananas"));
+      System.out.println(loops.reverseString("C"));
+      
     }
 }
