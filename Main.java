@@ -7,6 +7,6 @@ public class Main {
     System.out.print("Enter a number between 0 and 170: ");
     int userNumber = scanner.nextInt();
     
-    
+    scanner.close();
   }
 }

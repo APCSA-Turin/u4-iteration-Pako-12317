@@ -58,15 +58,89 @@ public class StringLoops {
     PRECONDITION: searchChar and replaceChar are single characters and are not equal
     */  
   public String replaceCharacterV1(String searchChar, String origStr, String replaceChar){
-    if(countCharacters(searchChar, origStr)>0){
-      for(int i=0;i<origStr.length();i++){
-        
-      }
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < origStr.length(); i++) {
+        char currentChar = origStr.charAt(i);
+        if (currentChar == searchChar.charAt(0)) {
+            result.append(replaceChar);
+        } else {
+            result.append(currentChar);
+        }
+    }
+    return result.toString();
+   }
+
+   public String replaceCharacterV2(String searchChar, String origStr, String replaceChar) {
+    StringBuilder result = new StringBuilder();
+    int i = 0;
+    while (i < origStr.length()) {
+        char currentChar = origStr.charAt(i);
+        if (currentChar == searchChar.charAt(0)) {
+            result.append(replaceChar);
+        } else {
+            result.append(currentChar);
+        }
+        i++;
+    }
+    return result.toString();
+   }
+
+   public int countString(String searchString, String origString) {
+    int count = 0;
+    int index = 0;
+
+    while ((index = origString.indexOf(searchString, index)) != -1) {
+        count++;
+        index++;
+    }
+
+    return count;
+   }
+
+   public String removeString(String searchString, String origString) {
+    return origString.replace(searchString, "");
+   }
+
+   public void commaSeparated(int fromNum, int toNum) {
+    if (fromNum <= toNum) {
+        for (int i = fromNum; i <= toNum; i++) {
+            System.out.print(i);
+            if (i < toNum) System.out.print(", ");
+        }
+    } else {
+        for (int i = fromNum; i >= toNum; i--) {
+            System.out.print(i);
+            if (i > toNum) System.out.print(", ");
+        }
+    }
+    System.out.println();
+   }
+
+   public boolean isPalindrome(String myString) {
+    String cleanedString = myString.replace(" ", "").toLowerCase();
+    int left = 0;
+    int right = cleanedString.length() - 1;
+
+    while (left < right) {
+        if (cleanedString.charAt(left) != cleanedString.charAt(right)) {
+            return false;
+        }
+        left++;
+        right--;
     }
     
-    return "";
+    return true;
    }
- 
- 
+
+   public void multiPrint(String toPrint, int num) {
+    System.out.print("[");
+
+    for (int i = 0; i < num; i++) {
+        System.out.print(toPrint);
+        if (i < num - 1) System.out.print(" ");
+    }
+
+    System.out.println("]");
+   }
   }
   
